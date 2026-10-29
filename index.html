@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NawiSystems | Consultoría de IA, Big Data e inteligencia de precios para e-commerce</title>
+  <meta name="description" content="NawiSystems desarrolla software a medida, inteligencia artificial y Big Data para e-commerce: inteligencia de precios, pronóstico de demanda y elasticidad de precios llevados a producción.">
+  <meta name="theme-color" content="#0a1b3d">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="NawiSystems">
+  <meta property="og:title" content="NawiSystems | IA, Big Data e inteligencia de precios para e-commerce">
+  <meta property="og:description" content="Monitorea a tu competencia, predice la demanda y evalúa escenarios de precio con datos. Consultoría de inteligencia artificial y desarrollo de software a medida.">
+  <!-- canonical y og:url se generan desde js/config.js (siteUrl) -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&amp;display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/demand-model.js" defer></script>
+  <script src="js/charts.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NawiSystems",
+    "description": "Consultora tecnológica de desarrollo de software a medida, automatización, inteligencia artificial, Machine Learning y Big Data.",
+    "knowsAbout": ["Inteligencia artificial", "Machine Learning", "Big Data", "Inteligencia de precios", "Pronóstico de demanda", "Business Intelligence", "Automatización de procesos"]
+  }
+  </script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="logo-mark" viewBox="0 0 32 32">
+      <path d="M7 25V7l18 18V7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
+      <circle cx="7" cy="25" r="3.4" fill="currentColor"/>
+      <circle cx="7" cy="7" r="3.4" fill="currentColor"/>
+      <circle cx="25" cy="25" r="3.4" fill="currentColor"/>
+      <circle cx="25" cy="7" r="3.8" class="logo-mark__signal"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="icon-up" viewBox="0 0 24 24"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 16l4.5 4.5M8 12l2-2.5 2 2 2-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-predict" viewBox="0 0 24 24"><path d="M3 19h18M4 15l4-4 3 3 4-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8l5-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2 2.5"/></symbol>
+    <symbol id="icon-react" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="15" cy="7" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="17" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="icon-catalog" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 9h8M8 12.5h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="icon-analytics" viewBox="0 0 24 24"><path d="M5 20V12M10 20V6M15 20v-9M20 20V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" data-site-header>
+    <div class="site-header__inner container">
+      <a class="logo" href="#inicio" aria-label="NawiSystems, ir al inicio">
+        <svg class="logo__mark" width="28" height="28" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
+        <span class="logo__word"><span class="logo__strong">Nawi</span>Systems</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+        <svg class="nav-toggle__icon" width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-menu"/></svg>
+        <span class="nav-toggle__label">Menú</span>
+      </button>
+
+      <nav class="site-nav" id="menu-principal" aria-label="Principal" data-nav>
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#producto">Producto</a></li>
+          <li><a class="site-nav__link" href="#servicios">Servicios</a></li>
+          <li><a class="site-nav__link" href="#integraciones">Integraciones</a></li>
+          <li><a class="site-nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+        <a class="button button--primary button--small site-nav__cta" href="#contacto" data-contact-reason="demo">Solicitar Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <div class="hero__copy">
+          <p class="hero__kicker">
+            <span class="hero__kicker-product" data-brand="product">Nawi Revenue Intelligence</span>, la plataforma de inteligencia comercial de NawiSystems
+          </p>
+          <h1 class="hero__title" id="hero-title">
+            Decisiones de <span class="nowrap">e-commerce</span> con IA: pronóstico de precios y Big Data que van directo a producción
+          </h1>
+          <p class="hero__description">Monitorea a tu competencia, predice la demanda y automatiza el precio óptimo de cada SKU para maximizar tu margen sin guerras de precios.</p>
+          <div class="hero__actions">
+            <a class="button button--primary hero__action" href="#contacto" data-contact-reason="demo">Solicitar Demo en Vivo</a>
+            <a class="button button--ghost hero__action" href="#contacto" data-contact-reason="auditoria">Auditar mi Caso de Uso</a>
+          </div>
+          <p class="hero__footnote">Precios bajo reglas que tú apruebas: margen piso, precio mínimo y registro de cada cambio.</p>
+        </div>
+
+        <figure class="product-dashboard hero__dashboard" aria-labelledby="dashboard-title" aria-describedby="dashboard-summary">
+          <div class="product-dashboard__bar">
+            <span class="product-dashboard__app">
+              <svg class="product-dashboard__mark" width="18" height="18" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
+              <span class="product-dashboard__company">NawiSystems</span>
+              <span class="product-dashboard__product-name" data-brand="product">Nawi Revenue Intelligence</span>
+            </span>
+            <span class="badge badge--demo badge--on-dark">Datos simulados</span>
+          </div>
+
+          <div class="product-dashboard__head">
+            <div>
+              <p class="product-dashboard__crumb">Catálogo / Audio</p>
+              <p class="product-dashboard__title" id="dashboard-title" data-demo="product-name">Audífonos inalámbricos ANC 300</p>
+              <p class="product-dashboard__meta">SKU <span data-demo="sku">AUD-ANC-300</span></p>
+            </div>
+            <p class="product-dashboard__updated">Datos de demostración al <time data-demo="generated" datetime="2026-10-27">27 oct 2026</time></p>
+          </div>
+
+          <dl class="product-dashboard__kpis">
+            <div class="product-dashboard__metric product-dashboard__metric--wide">
+              <dt class="product-dashboard__label">Precio actual</dt>
+              <dd class="product-dashboard__value" data-kpi="price">$1,899</dd>
+              <dd class="trend trend--neutral" data-kpi="price-gap">2.6&nbsp;% bajo la mediana</dd>
+            </div>
+            <div class="product-dashboard__metric">
+              <dt class="product-dashboard__label">Referencia competitiva</dt>
+              <dd class="product-dashboard__value" data-kpi="competitor">$1,949</dd>
+              <dd class="trend trend--neutral" data-kpi="competitor-count">Mediana de 6 tiendas</dd>
+            </div>
+            <div class="product-dashboard__metric">
+              <dt class="product-dashboard__label">Unidades estimadas</dt>
+              <dd class="product-dashboard__value"><span data-kpi="units">779</span><span class="product-dashboard__unit">/mes</span></dd>
+              <dd class="trend trend--up" data-kpi="units-trend">
+                <svg class="trend__icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="#icon-up"/></svg>
+                <span>4.3&nbsp;%</span><span class="visually-hidden"> frente al mes anterior</span>
+              </dd>
+            </div>
+            <div class="product-dashboard__metric">
+              <dt class="product-dashboard__label">Ingresos proyectados</dt>
+              <dd class="product-dashboard__value" data-kpi="revenue">$1.48&nbsp;M</dd>
+              <dd class="trend trend--up" data-kpi="revenue-trend">
+                <svg class="trend__icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="#icon-up"/></svg>
+                <span>1.6&nbsp;%</span><span class="visually-hidden"> frente al mes anterior</span>
+              </dd>
+            </div>
+            <div class="product-dashboard__metric">
+              <dt class="product-dashboard__label">Margen estimado</dt>
+              <dd class="product-dashboard__value" data-kpi="margin">37.9&nbsp;%</dd>
+              <dd class="trend trend--down" data-kpi="margin-trend">
+                <svg class="trend__icon" width="14" height="14" aria-hidden="true" focusable="false"><use href="#icon-down"/></svg>
+                <span>1.6 pts</span><span class="visually-hidden"> frente al mes anterior</span>
+              </dd>
+            </div>
+          </dl>
+          <p class="product-dashboard__kpi-note" aria-hidden="true">Variaciones frente al mes anterior. Margen bruto sobre ingresos.</p>
+
+          <div class="product-dashboard__charts">
+            <div class="product-dashboard__chart">
+              <p class="chart-title" id="hero-price-title">Precio vs. mediana de competencia, últimas 12 semanas</p>
+              <ul class="chart-legend" aria-hidden="true">
+                <li class="chart-legend__item chart-legend__item--own">Tu precio</li>
+                <li class="chart-legend__item chart-legend__item--competitor">Mediana competencia</li>
+              </ul>
+              <div class="chart chart--line" data-chart="price-history"></div>
+            </div>
+            <div class="product-dashboard__chart">
+              <p class="chart-title" id="hero-demand-title">Curva de demanda estimada</p>
+              <ul class="chart-legend" aria-hidden="true">
+                <li class="chart-legend__item chart-legend__item--current">Precio actual</li>
+                <li class="chart-legend__item chart-legend__item--optimum">Máx. beneficio</li>
+              </ul>
+              <div class="chart chart--demand chart--compact" data-chart="hero-demand"></div>
+            </div>
+          </div>
+
+          <figcaption class="product-dashboard__insight">
+            <svg class="product-dashboard__insight-icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#icon-info"/></svg>
+            <span id="dashboard-summary" data-kpi="insight">Escenario sugerido: $2,099. Beneficio bruto estimado +6.0&nbsp;% con 17.1&nbsp;% menos unidades. Requiere aprobación del equipo comercial.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="impact section" id="impacto" aria-labelledby="impact-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title" id="impact-title">El retorno se mide en margen, inventario y conversión</h2>
+          <p class="section-heading__lead">Antes de construir, acordamos con tu equipo qué indicador debe moverse, cuál es la línea base y cómo vamos a medirlo.</p>
+        </div>
+
+        <div class="impact__grid">
+          <figure class="impact-reference">
+            <p class="impact-reference__value"><span class="nowrap">+5&nbsp;%</span> a <span class="nowrap">+10&nbsp;%</span></p>
+            <p class="impact-reference__label">de beneficio bruto en minoristas que migraron a precios dinámicos con IA.</p>
+            <figcaption class="impact-reference__source">
+              Referencia de mercado: Boston Consulting Group,
+              <a href="https://www.bcg.com/publications/2024/overcoming-retail-complexity-with-ai-powered-pricing" class="impact-reference__link" rel="noopener" target="_blank">«Overcoming Retail Complexity with AI-Powered Pricing»<span class="visually-hidden"> (abre en una pestaña nueva)</span></a>,
+              abril de 2024. Es un dato de terceros, no un resultado de NawiSystems.
+            </figcaption>
+          </figure>
+
+          <ul class="impact-levers">
+            <li class="impact-lever">
+              <h3 class="impact-lever__title">Ventas</h3>
+              <p class="impact-lever__lever">Precios dinámicos con IA</p>
+              <p class="impact-lever__measure">Unidades e ingresos por SKU frente a un grupo de control.</p>
+            </li>
+            <li class="impact-lever">
+              <h3 class="impact-lever__title">Beneficio</h3>
+              <p class="impact-lever__lever">Optimización de precios con margen piso</p>
+              <p class="impact-lever__measure">Beneficio bruto y margen por categoría y canal.</p>
+            </li>
+            <li class="impact-lever">
+              <h3 class="impact-lever__title">Inventario</h3>
+              <p class="impact-lever__lever">Pronóstico de demanda</p>
+              <p class="impact-lever__measure">Error de pronóstico (WAPE), días de inventario y quiebres de stock.</p>
+            </li>
+            <li class="impact-lever">
+              <h3 class="impact-lever__title">Conversión</h3>
+              <p class="impact-lever__lever">Búsqueda semántica y recomendaciones</p>
+              <p class="impact-lever__measure">Conversión desde búsqueda, búsquedas sin resultado y ticket promedio en pruebas A/B.</p>
+            </li>
+          </ul>
+        </div>
+
+        <p class="impact__data-quality">
+          <svg class="impact__data-quality-icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg>
+          <span>Calidad de datos primero: medimos y reportamos la precisión del matching de productos por categoría, y la mantenemos separada del error de los pronósticos de venta.</span>
+        </p>
+        <p class="note">Los resultados dependen del mercado, la calidad de los datos, el catálogo y la estrategia aplicada. NawiSystems no garantiza resultados financieros específicos.</p>
+      </div>
+    </section>
+
+    <section class="product section section--dark" id="producto" aria-labelledby="product-title">
+      <div class="container">
+        <div class="section-heading section-heading--wide section-heading--on-dark">
+          <p class="product-lockup">
+            <svg class="product-lockup__mark" width="32" height="32" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
+            <span class="product-lockup__name" data-brand="product">Nawi Revenue Intelligence</span>
+            <span class="product-lockup__by">por NawiSystems</span>
+          </p>
+          <h2 class="section-heading__title section-heading__title--display" id="product-title">Monitor. Predict. React.</h2>
+          <p class="section-heading__lead">Convierte los datos de mercado en decisiones de precios más inteligentes, escenarios de venta medibles y estrategias comerciales que puedes llevar a producción. Un ciclo continuo: observar el mercado, anticipar escenarios y ejecutar decisiones con control.</p>
+        </div>
+
+        <ol class="cycle">
+          <li class="stage stage--connected">
+            <div class="stage__head">
+              <span class="stage__step" aria-hidden="true">1</span>
+              <svg class="stage__icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="#icon-monitor"/></svg>
+            </div>
+            <h3 class="stage__title"><span class="stage__name">Monitor</span> Entiende lo que ocurre en tu mercado</h3>
+            <p class="stage__text">Una vista estructurada de precios, promociones y disponibilidad evita decisiones basadas en información incompleta.</p>
+            <ul class="stage__list">
+              <li class="stage__item">Rastreo automatizado de precios y promociones</li>
+              <li class="stage__item">Matching de productos equivalentes entre canales y competidores</li>
+              <li class="stage__item">Cambios de disponibilidad y stock</li>
+              <li class="stage__item">Alertas de cambios relevantes y oportunidades cuando un competidor se queda sin stock</li>
+            </ul>
+            <figure class="stage__visual market-table" aria-labelledby="market-caption">
+              <table class="market-table__table">
+                <caption class="market-table__caption" id="market-caption">AUD-ANC-300 en 5 tiendas <span class="badge badge--demo">Simulado</span></caption>
+                <thead>
+                  <tr><th class="market-table__cell market-table__cell--head" scope="col">Tienda</th><th class="market-table__cell market-table__cell--head" scope="col">Precio</th><th class="market-table__cell market-table__cell--head" scope="col">Estado</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th class="market-table__cell market-table__cell--store" scope="row">Tienda A</th><td class="market-table__cell">$1,949</td><td class="market-table__cell"><span class="status status--ok">En stock</span></td></tr>
+                  <tr><th class="market-table__cell market-table__cell--store" scope="row">Tienda B</th><td class="market-table__cell">$1,999</td><td class="market-table__cell"><span class="status status--ok">En stock</span></td></tr>
+                  <tr><th class="market-table__cell market-table__cell--store" scope="row">Tienda C</th><td class="market-table__cell">—</td><td class="market-table__cell"><span class="status status--alert">Sin stock</span></td></tr>
+                  <tr><th class="market-table__cell market-table__cell--store" scope="row">Tienda D</th><td class="market-table__cell">$1,929</td><td class="market-table__cell"><span class="status status--info">Promoción −10&nbsp;%</span></td></tr>
+                  <tr><th class="market-table__cell market-table__cell--store" scope="row">Marketplace E</th><td class="market-table__cell">$1,979</td><td class="market-table__cell"><span class="status status--ok">En stock</span></td></tr>
+                </tbody>
+              </table>
+              <figcaption class="stage__caption">Ver que un competidor no tiene stock no revela sus ventas: indica una ventana de oportunidad que conviene validar.</figcaption>
+            </figure>
+          </li>
+
+          <li class="stage stage--connected">
+            <div class="stage__head">
+              <span class="stage__step" aria-hidden="true">2</span>
+              <svg class="stage__icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="#icon-predict"/></svg>
+            </div>
+            <h3 class="stage__title"><span class="stage__name">Predict</span> Anticipa la demanda antes de cambiar tus precios</h3>
+            <p class="stage__text">Los modelos de Machine Learning usan tu historial disponible y las variables relevantes para estimar escenarios futuros, con su margen de incertidumbre.</p>
+            <ul class="stage__list">
+              <li class="stage__item">Pronóstico de demanda y elasticidad precio-demanda</li>
+              <li class="stage__item">Unidades, ingresos y margen para distintos precios</li>
+              <li class="stage__item">Patrones diarios, semanales y mensuales</li>
+              <li class="stage__item">Festividades mexicanas, promociones, inventario y clima, cuando existen datos adecuados</li>
+            </ul>
+            <figure class="stage__visual seasonality" aria-labelledby="seasonality-caption">
+              <p class="seasonality__caption" id="seasonality-caption">Índice de demanda mensual (100 = promedio) <span class="badge badge--demo">Simulado</span></p>
+              <ol class="seasonality__bars">
+                <li class="seasonality__bar" style="--value: 84"><span class="visually-hidden">Enero: 84</span><span class="seasonality__month" aria-hidden="true">E</span></li>
+                <li class="seasonality__bar" style="--value: 82"><span class="visually-hidden">Febrero: 82</span><span class="seasonality__month" aria-hidden="true">F</span></li>
+                <li class="seasonality__bar" style="--value: 84"><span class="visually-hidden">Marzo: 84</span><span class="seasonality__month" aria-hidden="true">M</span></li>
+                <li class="seasonality__bar" style="--value: 86"><span class="visually-hidden">Abril: 86</span><span class="seasonality__month" aria-hidden="true">A</span></li>
+                <li class="seasonality__bar seasonality__bar--event" style="--value: 110"><span class="visually-hidden">Mayo: 110, Día de las Madres y Hot Sale</span><span class="seasonality__month" aria-hidden="true">M</span></li>
+                <li class="seasonality__bar" style="--value: 100"><span class="visually-hidden">Junio: 100</span><span class="seasonality__month" aria-hidden="true">J</span></li>
+                <li class="seasonality__bar" style="--value: 86"><span class="visually-hidden">Julio: 86</span><span class="seasonality__month" aria-hidden="true">J</span></li>
+                <li class="seasonality__bar" style="--value: 92"><span class="visually-hidden">Agosto: 92, regreso a clases</span><span class="seasonality__month" aria-hidden="true">A</span></li>
+                <li class="seasonality__bar" style="--value: 88"><span class="visually-hidden">Septiembre: 88</span><span class="seasonality__month" aria-hidden="true">S</span></li>
+                <li class="seasonality__bar" style="--value: 92"><span class="visually-hidden">Octubre: 92</span><span class="seasonality__month" aria-hidden="true">O</span></li>
+                <li class="seasonality__bar seasonality__bar--event" style="--value: 132"><span class="visually-hidden">Noviembre: 132, El Buen Fin</span><span class="seasonality__month" aria-hidden="true">N</span></li>
+                <li class="seasonality__bar seasonality__bar--event" style="--value: 164"><span class="visually-hidden">Diciembre: 164, Navidad</span><span class="seasonality__month" aria-hidden="true">D</span></li>
+              </ol>
+              <figcaption class="stage__caption">Picos marcados: Día de las Madres y Hot Sale (mayo), El Buen Fin (noviembre) y Navidad (diciembre).</figcaption>
+            </figure>
+          </li>
+
+          <li class="stage">
+            <div class="stage__head">
+              <span class="stage__step" aria-hidden="true">3</span>
+              <svg class="stage__icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="#icon-react"/></svg>
+            </div>
+            <h3 class="stage__title"><span class="stage__name">React</span> Decide con datos. Ejecuta con control.</h3>
+            <p class="stage__text">Compara escenarios antes de publicar un precio. La ejecución depende de las integraciones, permisos y reglas configuradas en cada canal.</p>
+            <ul class="stage__list">
+              <li class="stage__item">Simulación What-If de ingresos, unidades y margen</li>
+              <li class="stage__item">Reglas de precio mínimo y margen piso</li>
+              <li class="stage__item">Recomendaciones para el equipo comercial</li>
+              <li class="stage__item">Automatización solo de decisiones aprobadas, con registro de cambios</li>
+            </ul>
+            <figure class="stage__visual change-log" aria-labelledby="log-caption">
+              <p class="change-log__caption" id="log-caption">Registro de cambios de AUD-ANC-300 <span class="badge badge--demo">Simulado</span></p>
+              <ol class="change-log__list">
+                <li class="change-log__item">
+                  <time class="change-log__time" datetime="2026-10-27T10:42">27 oct, 10:42</time>
+                  <span class="change-log__event">Propuesta: $1,899 a $1,949. Cumple margen piso del 25&nbsp;%.</span>
+                </li>
+                <li class="change-log__item change-log__item--approved">
+                  <time class="change-log__time" datetime="2026-10-27T11:05">27 oct, 11:05</time>
+                  <span class="change-log__event">Aprobada por el equipo comercial.</span>
+                </li>
+                <li class="change-log__item">
+                  <time class="change-log__time" datetime="2026-10-27T11:06">27 oct, 11:06</time>
+                  <span class="change-log__event">Publicada en la tienda conectada por API. Marketplace E sin conexión: cambio manual pendiente.</span>
+                </li>
+              </ol>
+            </figure>
+          </li>
+        </ol>
+
+        <section class="pricing-demo" id="simulador" aria-labelledby="demo-title" data-pricing-demo>
+          <div class="pricing-demo__header">
+            <div>
+              <h3 class="pricing-demo__title" id="demo-title">Prueba un cambio de precio</h3>
+              <p class="pricing-demo__intro">Mueve el precio y observa cómo cambian las unidades, los ingresos y el margen estimados. Bajar el precio no siempre aumenta el beneficio, y subirlo no siempre maximiza los ingresos.</p>
+            </div>
+            <span class="badge badge--demo">Datos ilustrativos</span>
+          </div>
+
+          <div class="pricing-demo__layout">
+            <div class="pricing-demo__controls">
+              <dl class="demo-product">
+                <div class="demo-product__row demo-product__row--name">
+                  <dt class="visually-hidden">Producto</dt>
+                  <dd class="demo-product__name"><span data-demo="product-name">Audífonos inalámbricos ANC 300</span> <span class="demo-product__sku">SKU <span data-demo="sku">AUD-ANC-300</span></span></dd>
+                </div>
+                <div class="demo-product__row"><dt class="demo-product__term">Costo unitario</dt><dd class="demo-product__value" data-demo="cost">$1,180</dd></div>
+                <div class="demo-product__row"><dt class="demo-product__term">Mediana competencia</dt><dd class="demo-product__value" data-demo="competitor">$1,949</dd></div>
+                <div class="demo-product__row"><dt class="demo-product__term">Margen piso</dt><dd class="demo-product__value"><span data-demo="floor-pct">25&nbsp;%</span> (mínimo <span data-demo="floor-price">$1,574</span>)</dd></div>
+              </dl>
+
+              <div class="price-control">
+                <label class="price-control__label" for="price-range">Precio de venta</label>
+                <div class="price-control__row">
+                  <input class="price-control__range" id="price-range" type="range" min="1399" max="2599" step="10" value="1899" aria-describedby="price-hint" data-price-range>
+                  <div class="price-control__number">
+                    <span class="price-control__currency" aria-hidden="true">$</span>
+                    <label class="visually-hidden" for="price-input">Precio de venta en pesos</label>
+                    <input class="price-control__input" id="price-input" type="number" inputmode="numeric" min="1399" max="2599" step="10" value="1899" aria-describedby="price-hint" data-price-input>
+                  </div>
+                </div>
+                <p class="price-control__hint" id="price-hint" data-price-hint>Entre $1,399 y $2,599 MXN, en pasos de $10.</p>
+              </div>
+
+              <fieldset class="scenario-picker">
+                <legend class="scenario-picker__legend">Escenarios rápidos</legend>
+                <div class="scenario-picker__options">
+                  <button class="scenario-picker__option" type="button" data-scenario="current" aria-pressed="true">Precio actual</button>
+                  <button class="scenario-picker__option" type="button" data-scenario="match" aria-pressed="false">Igualar competencia</button>
+                  <button class="scenario-picker__option" type="button" data-scenario="revenue" aria-pressed="false">Máx. ingreso</button>
+                  <button class="scenario-picker__option" type="button" data-scenario="profit" aria-pressed="false">Máx. beneficio</button>
+                </div>
+              </fieldset>
+
+              <p class="rule-status rule-status--ok" data-rule-status>
+                <svg class="rule-status__icon" width="20" height="20" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg>
+                <span class="rule-status__text">Cumple el margen piso del 25&nbsp;%.</span>
+              </p>
+            </div>
+
+            <div class="pricing-demo__results">
+              <dl class="demo-kpis">
+                <div class="demo-kpis__item">
+                  <dt class="demo-kpis__label">Unidades estimadas / mes</dt>
+                  <dd class="demo-kpis__value" data-output="units">779</dd>
+                  <dd class="demo-kpis__delta" data-delta="units">Igual que el precio actual</dd>
+                </div>
+                <div class="demo-kpis__item">
+                  <dt class="demo-kpis__label">Ingresos estimados</dt>
+                  <dd class="demo-kpis__value" data-output="revenue">$1,479,321</dd>
+                  <dd class="demo-kpis__delta" data-delta="revenue">Igual que el precio actual</dd>
+                </div>
+                <div class="demo-kpis__item">
+                  <dt class="demo-kpis__label">Beneficio bruto estimado</dt>
+                  <dd class="demo-kpis__value" data-output="profit">$560,101</dd>
+                  <dd class="demo-kpis__delta" data-delta="profit">Igual que el precio actual</dd>
+                </div>
+                <div class="demo-kpis__item">
+                  <dt class="demo-kpis__label">Margen bruto</dt>
+                  <dd class="demo-kpis__value" data-output="margin">37.9&nbsp;%</dd>
+                  <dd class="demo-kpis__delta" data-delta="margin">Igual que el precio actual</dd>
+                </div>
+              </dl>
+
+              <figure class="demo-chart" aria-labelledby="demo-chart-title" aria-describedby="demo-chart-desc">
+                <p class="chart-title" id="demo-chart-title">Unidades estimadas según el precio</p>
+                <p class="demo-chart__desc" id="demo-chart-desc">Elasticidad puntual estimada: <strong class="demo-chart__value" data-output="elasticity">−1.54</strong>. Con este supuesto, si el precio sube 1&nbsp;%, las unidades bajan alrededor de <span data-output="elasticity-abs">1.5</span>&nbsp;%.</p>
+                <div class="chart chart--demand" data-chart="demo-demand"></div>
+              </figure>
+            </div>
+          </div>
+
+          <div class="comparison">
+            <p class="comparison__title" id="comparison-title">Comparación de escenarios (estimaciones mensuales)</p>
+            <p class="comparison__hint">Desliza la tabla para ver todas las columnas.</p>
+            <div class="comparison__scroll" role="region" aria-labelledby="comparison-title" tabindex="0">
+              <table class="comparison__table">
+                <caption class="visually-hidden">Comparación de escenarios (estimaciones mensuales)</caption>
+                <thead>
+                  <tr>
+                    <th class="comparison__cell comparison__cell--head comparison__cell--label" scope="col">Escenario</th>
+                    <th class="comparison__cell comparison__cell--head" scope="col">Precio</th>
+                    <th class="comparison__cell comparison__cell--head" scope="col">Unidades</th>
+                    <th class="comparison__cell comparison__cell--head" scope="col">Ingresos</th>
+                    <th class="comparison__cell comparison__cell--head" scope="col">Beneficio bruto</th>
+                    <th class="comparison__cell comparison__cell--head" scope="col">Margen</th>
+                    <th class="comparison__cell comparison__cell--head comparison__cell--text" scope="col">Margen piso</th>
+                  </tr>
+                </thead>
+                <tbody data-comparison-body></tbody>
+              </table>
+            </div>
+          </div>
+
+          <details class="method">
+            <summary class="method__summary">Cómo calcula esta demo</summary>
+            <div class="method__body">
+              <p>Usa una curva de demanda sintética y determinista, definida en el código, que depende del precio relativo a la mediana de la competencia. No usa Machine Learning ni datos reales.</p>
+              <ul class="method__formulas">
+                <li>Ingresos estimados = precio × unidades estimadas</li>
+                <li>Beneficio bruto estimado = (precio − costo unitario) × unidades estimadas</li>
+                <li>Margen bruto = beneficio bruto ÷ ingresos × 100</li>
+              </ul>
+              <p>En un proyecto real, la curva se estima por SKU con tu historial de ventas, precios, promociones, inventario y estacionalidad, y se valida contra periodos que el modelo no vio.</p>
+            </div>
+          </details>
+
+          <p class="note note--on-panel">Demo ilustrativa: las cifras se calculan con datos sintéticos y no constituyen una predicción real del mercado ni una recomendación de precio.</p>
+          <p class="visually-hidden" aria-live="polite" data-demo-live></p>
+        </section>
+      </div>
+    </section>
+
+    <section class="services section" id="servicios" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title" id="services-title">Construimos la tecnología que tu negocio necesita para crecer</h2>
+          <p class="section-heading__lead">Desde la preparación de tus datos hasta la puesta en producción, desarrollamos soluciones de IA que responden a problemas reales de negocio.</p>
+        </div>
+
+        <div class="service-lines">
+          <article class="service">
+            <div class="service__body">
+              <svg class="service__icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="#icon-search"/></svg>
+              <h3 class="service__title">Descubrimiento y conversión</h3>
+              <p class="service__benefit">Que tus clientes encuentren el producto correcto con menos fricción.</p>
+              <ul class="service__list">
+                <li class="service__item">Búsqueda semántica con modelos de lenguaje</li>
+                <li class="service__item">Motores de recomendación personalizados</li>
+                <li class="service__item">Asistentes de compra conversacionales</li>
+                <li class="service__item">Búsqueda contextual y recuperación de información</li>
+                <li class="service__item">Personalización de la experiencia de compra</li>
+              </ul>
+            </div>
+            <figure class="service__visual search-demo" aria-labelledby="search-demo-caption">
+              <p class="search-demo__query">
+                <svg class="search-demo__icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="#icon-search"/></svg>
+                <span>audífonos para correr que no se caigan</span>
+              </p>
+              <ol class="search-demo__results">
+                <li class="search-demo__result"><span>Audífonos deportivos con gancho, IPX5</span><span class="search-demo__score" style="--score: 0.94"><span class="visually-hidden">Relevancia 94 %</span></span></li>
+                <li class="search-demo__result"><span>Audífonos de conducción ósea</span><span class="search-demo__score" style="--score: 0.88"><span class="visually-hidden">Relevancia 88 %</span></span></li>
+                <li class="search-demo__result"><span>Banda deportiva para audífonos</span><span class="search-demo__score" style="--score: 0.61"><span class="visually-hidden">Relevancia 61 %</span></span></li>
+              </ol>
+              <figcaption class="service__caption" id="search-demo-caption">La búsqueda entiende la intención («correr», «no se caigan») aunque el título no contenga esas palabras. Ejemplo ilustrativo.</figcaption>
+            </figure>
+          </article>
+
+          <article class="service service--reverse">
+            <div class="service__body">
+              <svg class="service__icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="#icon-catalog"/></svg>
+              <h3 class="service__title">Anaquel digital y catálogos</h3>
+              <p class="service__benefit">Fichas completas y consistentes en todos tus canales.</p>
+              <ul class="service__list">
+                <li class="service__item">Auditoría de fichas de producto</li>
+                <li class="service__item">Normalización de títulos y atributos</li>
+                <li class="service__item">Enriquecimiento automatizado con IA generativa supervisada</li>
+                <li class="service__item">Metadatos y contenido optimizado para SEO</li>
+                <li class="service__item">Detección de inconsistencias entre canales</li>
+              </ul>
+            </div>
+            <figure class="service__visual catalog-demo" aria-labelledby="catalog-demo-caption">
+              <div class="catalog-demo__row">
+                <p class="catalog-demo__label">Antes</p>
+                <p class="catalog-demo__title catalog-demo__title--before">AUDIF BT NEGRO ANC300 NUEVO!!</p>
+                <p class="catalog-demo__meter"><span class="catalog-demo__bar" style="--fill: 0.42"></span><span class="catalog-demo__pct">42&nbsp;% de atributos</span></p>
+              </div>
+              <div class="catalog-demo__row catalog-demo__row--after">
+                <p class="catalog-demo__label">Después</p>
+                <p class="catalog-demo__title">Audífonos inalámbricos ANC 300, Bluetooth 5.3, cancelación de ruido, negro</p>
+                <p class="catalog-demo__meter"><span class="catalog-demo__bar catalog-demo__bar--complete" style="--fill: 0.96"></span><span class="catalog-demo__pct">96&nbsp;% de atributos</span></p>
+              </div>
+              <figcaption class="service__caption" id="catalog-demo-caption">Mejor calidad de datos para buscadores y marketplaces, sin prometer posiciones concretas. Ejemplo ilustrativo.</figcaption>
+            </figure>
+          </article>
+
+          <article class="service">
+            <div class="service__body">
+              <svg class="service__icon" width="28" height="28" aria-hidden="true" focusable="false"><use href="#icon-analytics"/></svg>
+              <h3 class="service__title">Analítica predictiva a medida</h3>
+              <p class="service__benefit">Anticipa qué clientes comprarán, cuáles se irán y cuánto vas a vender.</p>
+              <ul class="service__list">
+                <li class="service__item">Segmentación avanzada y propensión de compra</li>
+                <li class="service__item">Predicción de abandono (churn)</li>
+                <li class="service__item">Pronósticos de demanda</li>
+                <li class="service__item">Dashboards de Business Intelligence</li>
+                <li class="service__item">Integración con ERP, CRM y plataformas comerciales</li>
+                <li class="service__item">Pipelines de datos y automatización de procesos analíticos</li>
+              </ul>
+            </div>
+            <figure class="service__visual segment-demo" aria-labelledby="segment-demo-caption">
+              <p class="segment-demo__title">Riesgo de abandono por segmento</p>
+              <ul class="segment-demo__list">
+                <li class="segment-demo__item"><span class="segment-demo__name">Compradores frecuentes</span><span class="segment-demo__bar" style="--value: 0.08"></span><span class="segment-demo__value">8&nbsp;%</span></li>
+                <li class="segment-demo__item"><span class="segment-demo__name">Solo en temporada</span><span class="segment-demo__bar" style="--value: 0.31"></span><span class="segment-demo__value">31&nbsp;%</span></li>
+                <li class="segment-demo__item"><span class="segment-demo__name">Una sola compra</span><span class="segment-demo__bar" style="--value: 0.57"></span><span class="segment-demo__value">57&nbsp;%</span></li>
+              </ul>
+              <figcaption class="service__caption" id="segment-demo-caption">Probabilidad de no volver a comprar en 90 días. Ejemplo ilustrativo con datos sintéticos.</figcaption>
+            </figure>
+          </article>
+        </div>
+
+        <div class="delivery">
+          <div class="delivery__intro">
+            <h3 class="delivery__title">Del prototipo a producción</h3>
+            <p class="delivery__text">No entregamos solo una prueba de concepto: desarrollamos, desplegamos, monitorizamos y mantenemos las soluciones que construimos.</p>
+          </div>
+          <ol class="delivery__steps">
+            <li class="delivery__step"><span class="delivery__name">Descubrimiento</span><span class="delivery__desc">Caso de uso, KPI y línea base</span></li>
+            <li class="delivery__step"><span class="delivery__name">Datos</span><span class="delivery__desc">Acceso, limpieza y calidad</span></li>
+            <li class="delivery__step"><span class="delivery__name">Desarrollo</span><span class="delivery__desc">Modelos, APIs e interfaces</span></li>
+            <li class="delivery__step"><span class="delivery__name">Validación</span><span class="delivery__desc">Backtesting y pruebas controladas</span></li>
+            <li class="delivery__step"><span class="delivery__name">Producción</span><span class="delivery__desc">Despliegue, permisos y reglas</span></li>
+            <li class="delivery__step delivery__step--final"><span class="delivery__name">Monitorización</span><span class="delivery__desc">Deriva, errores y reentrenamiento</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="integrations section section--muted" id="integraciones" aria-labelledby="integrations-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title" id="integrations-title">Tu ecosistema actual. Más inteligencia. Menos fricción.</h2>
+          <p class="section-heading__lead">Diseñamos la arquitectura para conectarse a tus plataformas mediante sus APIs y conectores, según lo que cada una permita. No necesitas reemplazar lo que ya funciona.</p>
+        </div>
+
+        <figure class="integration-map" aria-labelledby="integration-map-caption">
+          <div class="integration-map__column">
+            <p class="integration-map__heading">Tus plataformas</p>
+            <ul class="integration-map__nodes">
+              <li class="integration-node">Shopify</li>
+              <li class="integration-node">Magento / Adobe Commerce</li>
+              <li class="integration-node">VTEX</li>
+              <li class="integration-node">SAP</li>
+              <li class="integration-node">Oracle</li>
+            </ul>
+            <p class="integration-map__heading">Señales externas</p>
+            <ul class="integration-map__nodes">
+              <li class="integration-node integration-node--external">Precios y stock de competidores</li>
+              <li class="integration-node integration-node--external">Calendario y clima</li>
+            </ul>
+          </div>
+
+          <div class="integration-map__core">
+            <svg class="integration-map__core-mark" width="40" height="40" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
+            <p class="integration-map__core-title">Capa de datos e inteligencia</p>
+            <p class="integration-map__core-text">Ingesta, matching, modelos de demanda y reglas de negocio</p>
+          </div>
+
+          <div class="integration-map__column">
+            <p class="integration-map__heading">Lo que recibe tu equipo</p>
+            <ul class="integration-map__nodes">
+              <li class="integration-node integration-node--output">Dashboards y alertas</li>
+              <li class="integration-node integration-node--output">Recomendaciones con aprobación</li>
+              <li class="integration-node integration-node--output">API y exportaciones a tu BI</li>
+            </ul>
+          </div>
+
+          <figcaption class="integration-map__caption" id="integration-map-caption">
+            <svg class="integration-map__caption-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="#icon-info"/></svg>
+            <span>Compatibilidad técnica potencial, no integraciones nativas publicadas. En cada proyecto validamos qué expone la API de tu plataforma, tu versión y los permisos disponibles antes de comprometer un alcance.</span>
+          </figcaption>
+        </figure>
+
+        <div class="timeline">
+          <div class="timeline__intro">
+            <h3 class="timeline__title">Del diagnóstico a los primeros resultados</h3>
+            <p class="timeline__text">Nuestro objetivo orientativo es mostrar primeros resultados medibles en menos de ocho semanas. No es un plazo universal: depende del alcance, la calidad de los datos, el acceso a las APIs y la complejidad del proyecto.</p>
+          </div>
+          <ol class="timeline__phases">
+            <li class="timeline__phase" style="--start: 1; --span: 2"><span class="timeline__weeks">Semanas 1–2</span><span class="timeline__name">Diagnóstico y acceso a datos</span></li>
+            <li class="timeline__phase" style="--start: 3; --span: 3"><span class="timeline__weeks">Semanas 3–5</span><span class="timeline__name">Modelo y piloto acotado</span></li>
+            <li class="timeline__phase timeline__phase--final" style="--start: 6; --span: 3"><span class="timeline__weeks">Semanas 6–8</span><span class="timeline__name">Validación y primeros resultados</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section section--dark" id="contacto" aria-labelledby="contact-title">
+      <div class="contact__inner container">
+        <div class="contact__copy">
+          <h2 class="contact__title" id="contact-title">Identifiquemos el caso de uso de mayor ROI para tu e-commerce antes de construir nada.</h2>
+          <p class="contact__text">Agenda una sesión técnica para evaluar tus datos, identificar oportunidades y definir una ruta de implementación viable.</p>
+          <ul class="contact__points">
+            <li class="contact__point">Revisión de tus fuentes de datos y plataformas</li>
+            <li class="contact__point">Casos de uso priorizados por impacto y viabilidad</li>
+            <li class="contact__point">Ruta de implementación con supuestos explícitos</li>
+          </ul>
+          <a class="button button--primary" href="#formulario-contacto" data-contact-reason="sesion">Agendar sesión técnica</a>
+          <p class="contact__brand-line">NawiSystems transforma datos en decisiones y decisiones en resultados.</p>
+        </div>
+
+        <form class="contact-form" id="formulario-contacto" novalidate data-contact-form aria-labelledby="contact-form-title">
+          <h3 class="contact-form__title" id="contact-form-title">Cuéntanos sobre tu proyecto</h3>
+          <p class="contact-form__required-note">Todos los campos son obligatorios salvo los marcados como opcionales.</p>
+
+          <div class="field">
+            <label class="field__label" for="contact-reason">Motivo</label>
+            <select class="field__control field__control--select" id="contact-reason" name="reason" required aria-describedby="contact-reason-error">
+              <option value="">Elige una opción</option>
+              <option value="demo">Solicitar demo en vivo</option>
+              <option value="auditoria">Auditar mi caso de uso</option>
+              <option value="sesion">Agendar sesión técnica</option>
+              <option value="otro">Otro proyecto de software o datos</option>
+            </select>
+            <p class="field__error" id="contact-reason-error" hidden></p>
+          </div>
+
+          <div class="contact-form__pair">
+            <div class="field">
+              <label class="field__label" for="contact-name">Nombre</label>
+              <input class="field__control" id="contact-name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="contact-name-error">
+              <p class="field__error" id="contact-name-error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="contact-company">Empresa</label>
+              <input class="field__control" id="contact-company" name="company" type="text" autocomplete="organization" required maxlength="160" aria-describedby="contact-company-error">
+              <p class="field__error" id="contact-company-error" hidden></p>
+            </div>
+          </div>
+
+          <div class="contact-form__pair">
+            <div class="field">
+              <label class="field__label" for="contact-email">Correo de trabajo</label>
+              <input class="field__control" id="contact-email" name="email" type="email" autocomplete="email" required maxlength="160" aria-describedby="contact-email-error">
+              <p class="field__error" id="contact-email-error" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="contact-platform">Plataforma principal <span class="field__optional">(opcional)</span></label>
+              <select class="field__control field__control--select" id="contact-platform" name="platform">
+                <option value="">Sin especificar</option>
+                <option>Shopify</option>
+                <option>Magento / Adobe Commerce</option>
+                <option>VTEX</option>
+                <option>SAP</option>
+                <option>Oracle</option>
+                <option>Desarrollo propio</option>
+                <option>Otra</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="contact-message">¿Qué quieres resolver?</label>
+            <textarea class="field__control field__control--textarea" id="contact-message" name="message" rows="4" required minlength="20" maxlength="2000" aria-describedby="contact-message-hint contact-message-error"></textarea>
+            <p class="field__hint" id="contact-message-hint">Por ejemplo: número de SKU, canales de venta y qué decisión quieres mejorar.</p>
+            <p class="field__error" id="contact-message-error" hidden></p>
+          </div>
+
+          <div class="contact-form__trap" aria-hidden="true">
+            <label for="contact-website">No llenar</label>
+            <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="button button--primary contact-form__submit" type="submit" data-submit>Enviar solicitud</button>
+          <div class="form-status" role="status" aria-live="polite" data-form-status hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <div class="site-footer__brand">
+        <a class="logo logo--footer" href="#inicio" aria-label="NawiSystems, volver al inicio">
+          <svg class="logo__mark" width="28" height="28" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
+          <span class="logo__word"><span class="logo__strong">Nawi</span>Systems</span>
+        </a>
+        <p class="site-footer__about">Consultora tecnológica de desarrollo de software a medida, automatización, inteligencia artificial, Machine Learning y Big Data. Creadores de <span data-brand="product">Nawi Revenue Intelligence</span>.</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Pie de página">
+        <ul class="site-footer__links">
+          <li class="site-footer__item"><a class="site-footer__link" href="#producto">Producto</a></li>
+          <li class="site-footer__item"><a class="site-footer__link" href="#servicios">Servicios</a></li>
+          <li class="site-footer__item"><a class="site-footer__link" href="#integraciones">Integraciones</a></li>
+          <li class="site-footer__item"><a class="site-footer__link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <p class="site-footer__corporate" data-corporate-info hidden></p>
+      <p class="site-footer__legal">© <span data-current-year>2026</span> NawiSystems. Todas las cifras de producto mostradas en esta página son simuladas, salvo que se indique una fuente.</p>
+    </div>
+  </footer>
+</body>
+</html>
